@@ -7,11 +7,7 @@
 //
 
 #import "CZGSpinLayer.h"
-#import "Constants.h"
-#import "Macros.h"
-#import "GameAudio.h"
-
-#import "WordGameAppDelegate.h"
+#import "CZGSpinLayerMacros.h"
 
 #define SPIN_DECELERATION 0.1
 #define MIN_MOVEMENTS_FOR_MOMENTUM 3
@@ -70,7 +66,7 @@ innerTouchRadius= _innerTouchRadius, outerTouchRadius = _outerTouchRadius, autos
    if (self) {
        _checkedWhetherCurrentSpinDivisionIsOkay = YES;
        _autospin = NO;
-      self.isTouchEnabled = YES;
+      self.touchEnabled = YES;
       self.ignoreAnchorPointForPosition = NO;
       self.contentNode = [CCNode node];
       self.divisions = 53;
@@ -281,7 +277,9 @@ innerTouchRadius= _innerTouchRadius, outerTouchRadius = _outerTouchRadius, autos
 - (void) playClick {
    NSTimeInterval clickTime = [NSDate timeIntervalSinceReferenceDate];
    if (clickTime - _previousClickTime > 0.1) {
-      [[WordGameAppDelegate sharedInstance].audio playClick];
+       if ([self.delegate respondsToSelector: @selector(spinLayerPlayClick:)]) {
+           [self.delegate spinLayerPlayClick: self];
+       }
       _previousClickTime = clickTime;
    }
 }

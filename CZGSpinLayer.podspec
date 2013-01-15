@@ -9,5 +9,5 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '5.0'
   s.source_files = 'Classes'
   s.requires_arc = true
-#  s.dependency 'FMDB', '~> 2.0'
+  s.dependency 'cocos2d', '~> 2.0.0'
 end

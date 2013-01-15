@@ -17,6 +17,7 @@
 @optional 
 - (BOOL) spinLayer: (CZGSpinLayer *) spinLayer canSpinToDivision: (int) division;
 - (void) spinLayerDidRotate: (CZGSpinLayer *) spinLayer;
+- (void) spinLayerPlayClick: (CZGSpinLayer *) spinLayer;
 
 @end
 

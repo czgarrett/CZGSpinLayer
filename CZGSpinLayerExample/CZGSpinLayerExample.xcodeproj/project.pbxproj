@@ -139,6 +139,7 @@
 		83C7605616A5BE890017D0C3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C7605516A5BE890017D0C3 /* AppDelegate.m */; };
 		83C7605916A5BE890017D0C3 /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C7605816A5BE890017D0C3 /* HelloWorldLayer.m */; };
 		83C7605C16A5BE890017D0C3 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C7605B16A5BE890017D0C3 /* IntroLayer.m */; };
+		83C7606516A5CAFA0017D0C3 /* CZGSpinLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C7606416A5CAFA0017D0C3 /* CZGSpinLayer.m */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -416,6 +417,9 @@
 		83C7605816A5BE890017D0C3 /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
 		83C7605A16A5BE890017D0C3 /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		83C7605B16A5BE890017D0C3 /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		83C7606316A5CAFA0017D0C3 /* CZGSpinLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZGSpinLayer.h; sourceTree = "<group>"; };
+		83C7606416A5CAFA0017D0C3 /* CZGSpinLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CZGSpinLayer.m; sourceTree = "<group>"; };
+		83C7606616A5CC650017D0C3 /* CZGSpinLayerMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CZGSpinLayerMacros.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -441,6 +445,7 @@
 		83C75EA916A5BE860017D0C3 = {
 			isa = PBXGroup;
 			children = (
+				83C7606216A5CAFA0017D0C3 /* Classes */,
 				83C75ECA16A5BE860017D0C3 /* CZGSpinLayerExample */,
 				83C75EB716A5BE860017D0C3 /* Frameworks */,
 				83C75EB516A5BE860017D0C3 /* Products */,
@@ -862,6 +867,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		83C7606216A5CAFA0017D0C3 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				83C7606316A5CAFA0017D0C3 /* CZGSpinLayer.h */,
+				83C7606416A5CAFA0017D0C3 /* CZGSpinLayer.m */,
+				83C7606616A5CC650017D0C3 /* CZGSpinLayerMacros.h */,
+			);
+			name = Classes;
+			path = ../Classes;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1046,6 +1062,7 @@
 				83C7605616A5BE890017D0C3 /* AppDelegate.m in Sources */,
 				83C7605916A5BE890017D0C3 /* HelloWorldLayer.m in Sources */,
 				83C7605C16A5BE890017D0C3 /* IntroLayer.m in Sources */,
+				83C7606516A5CAFA0017D0C3 /* CZGSpinLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

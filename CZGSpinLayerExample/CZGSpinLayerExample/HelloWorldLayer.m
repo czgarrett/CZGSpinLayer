@@ -42,65 +42,33 @@
 	if( (self=[super init]) ) {
 		
 		// create and initialize a Label
-		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Hello World" fontName:@"Marker Felt" fontSize:64];
+		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Spin Me" fontName:@"Marker Felt" fontSize:64];
+        label.color = ccc3(255,255,255);
 
 		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
-	
+
+        CZGSpinLayer *spinLayer = [CZGSpinLayer node];
+        spinLayer.position = ccp(size.width/2, size.height/2);
+        spinLayer.contentSize = CGSizeMake(768.0, 768.0);
+        spinLayer.contentNode.position = ccp(384,384);
+        spinLayer.divisions = 4;
+        spinLayer.spinOffsetRadians = 0.0;
+        
+        spinLayer.delegate = self;
+
 		// position the label on the center of the screen
-		label.position =  ccp( size.width /2 , size.height/2 );
+		label.position =  ccp(0,0);
 		
 		// add the label as a child to this Layer
-		[self addChild: label];
+        [self addChild: spinLayer];
+		[spinLayer.contentNode addChild: label];
+        
+        //label.position = ccp(size.width/2, size.height/2);
+		//[self addChild: label];
 		
 		
-		
-		//
-		// Leaderboards and Achievements
-		//
-		
-		// Default font size will be 28 points.
-		[CCMenuItemFont setFontSize:28];
-		
-		// Achievement Menu Item using blocks
-		CCMenuItem *itemAchievement = [CCMenuItemFont itemWithString:@"Achievements" block:^(id sender) {
-			
-			
-			GKAchievementViewController *achievementViewController = [[GKAchievementViewController alloc] init];
-			achievementViewController.achievementDelegate = self;
-			
-			AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-			
-			[[app navController] presentModalViewController:achievementViewController animated:YES];
-			
-			[achievementViewController release];
-		}
-									   ];
-
-		// Leaderboard Menu Item using blocks
-		CCMenuItem *itemLeaderboard = [CCMenuItemFont itemWithString:@"Leaderboard" block:^(id sender) {
-			
-			
-			GKLeaderboardViewController *leaderboardViewController = [[GKLeaderboardViewController alloc] init];
-			leaderboardViewController.leaderboardDelegate = self;
-			
-			AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-			
-			[[app navController] presentModalViewController:leaderboardViewController animated:YES];
-			
-			[leaderboardViewController release];
-		}
-									   ];
-		
-		CCMenu *menu = [CCMenu menuWithItems:itemAchievement, itemLeaderboard, nil];
-		
-		[menu alignItemsHorizontallyWithPadding:20];
-		[menu setPosition:ccp( size.width/2, size.height/2 - 50)];
-		
-		// Add the menu to the layer
-		[self addChild:menu];
-
-	}
+    }
 	return self;
 }
 
@@ -115,17 +83,23 @@
 	[super dealloc];
 }
 
-#pragma mark GameKit delegate
+#pragma mark CZGSpinLayerDelegate methods
 
--(void) achievementViewControllerDidFinish:(GKAchievementViewController *)viewController
-{
-	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-	[[app navController] dismissModalViewControllerAnimated:YES];
+- (void) spinLayerDidFinishSpinning: (CZGSpinLayer *) spinLayer {
+    
 }
 
--(void) leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
-{
-	AppController *app = (AppController*) [[UIApplication sharedApplication] delegate];
-	[[app navController] dismissModalViewControllerAnimated:YES];
+- (BOOL) spinLayer: (CZGSpinLayer *) spinLayer canSpinToDivision: (int) division {
+    return YES;
 }
+
+- (void) spinLayerDidRotate: (CZGSpinLayer *) spinLayer {
+    
+}
+
+- (void) spinLayerPlayClick: (CZGSpinLayer *) spinLayer {
+    
+}
+
+
 @end

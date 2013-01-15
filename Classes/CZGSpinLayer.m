@@ -66,7 +66,7 @@ innerTouchRadius= _innerTouchRadius, outerTouchRadius = _outerTouchRadius, autos
    if (self) {
        _checkedWhetherCurrentSpinDivisionIsOkay = YES;
        _autospin = NO;
-      self.touchEnabled = YES;
+      self.isTouchEnabled = YES;
       self.ignoreAnchorPointForPosition = NO;
       self.contentNode = [CCNode node];
       self.divisions = 53;

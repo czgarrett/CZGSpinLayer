@@ -44,6 +44,8 @@
 		// create and initialize a Label
 		CCLabelTTF *label = [CCLabelTTF labelWithString:@"Spin Me" fontName:@"Marker Felt" fontSize:64];
         label.color = ccc3(255,255,255);
+		// position the label on the center of the spin layer
+		label.position =  ccp(0,0);
 
 		// ask director for the window size
 		CGSize size = [[CCDirector sharedDirector] winSize];
@@ -57,11 +59,10 @@
         
         spinLayer.delegate = self;
 
-		// position the label on the center of the screen
-		label.position =  ccp(0,0);
 		
 		// add the label as a child to this Layer
         [self addChild: spinLayer];
+        // Important:  add the item you want to spin to the spin layer's content node.
 		[spinLayer.contentNode addChild: label];
         
         //label.position = ccp(size.width/2, size.height/2);
